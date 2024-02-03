@@ -1,4 +1,4 @@
 # -*- coding: utf-8 -*-
-TOKEN = "5933842973:AAF7qorlBftInp_z0hvNEcWpnhMvG6ImfAA"
+TOKEN = "6531499751:AAGHzxki3QsflZqnh3wnk_1qF-yZE5YJxtw"
 with open('words.txt', 'r', encoding='utf-8') as file:
     word_list = file.read().splitlines()
