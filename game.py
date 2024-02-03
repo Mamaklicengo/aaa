@@ -1,14 +1,15 @@
 # -*- coding: utf-8 -*-
 import random
-from datetime import datetime
+from datetime import datetime, timedelta
 
 import settings
+import time
 
 
 class User:
     def __init__(self, user_id, username):
-        self.user_id = user_id
-        self.username = username
+        self.user_id: int = user_id
+        self.username: str = username
         self.rating = 0
 
     def update_rating(self):
@@ -29,19 +30,14 @@ class Game:
         self._game_started = False
         self._users = {}
         self.winner = 0
-        self._master_start_time = datetime.now()
+        self._master_start_time: datetime = datetime.now()
         self.timedelta = 60
 
     def start(self):
-        if not self._game_started:
-            self._word_list = settings.word_list.copy()
-            self._game_started = True
-            self._users = {}
-            if self._master_user_id == 0:
-                self._master_user_id = 1  # Sabit master kullanıcı ataması yapılabilir
-
-    # Diğer metotlar aynı kaldı
-
+        self._word_list = settings.word_list.copy()
+        self._master_user_id = 0
+        self._game_started = True
+        self._users = {}
 
     def is_game_started(self):
         return self._game_started
